@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ritik Jayaswal — Advocate | District Court & High Court of India</title>
+  <meta name="description"
+    content="Ritik Jayaswal is an advocate practicing in the District and High Courts of India. Criminal, civil, constitutional, and corporate law. Book a consultation today.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ritik-jayaswal.vercel.app/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ritik-jayaswal.vercel.app/">
+  <meta property="og:title" content="Ritik Jayaswal — Advocate | District Court & High Court of India">
+  <meta property="og:description" content="Ritik Jayaswal is an advocate practicing in the District and High Courts of India. Criminal, civil, constitutional, and corporate law. Book a consultation today.">
+  <meta property="og:image" content="https://ritik-jayaswal.vercel.app/assets/portrait.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://ritik-jayaswal.vercel.app/">
+  <meta property="twitter:title" content="Ritik Jayaswal — Advocate | District Court & High Court of India">
+  <meta property="twitter:description" content="Ritik Jayaswal is an advocate practicing in the District and High Courts of India. Criminal, civil, constitutional, and corporate law. Book a consultation today.">
+  <meta property="twitter:image" content="https://ritik-jayaswal.vercel.app/assets/portrait.png">
+
+  <!-- Local Legal Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "Ritik Jayaswal — Advocate",
+    "description": "Ritik Jayaswal is a practicing Advocate at the Jaipur District Court and High Court of India, specializing in criminal, civil, constitutional, family, and corporate law.",
+    "url": "https://ritik-jayaswal.vercel.app/",
+    "telephone": "+91-9983243935",
+    "email": "ritikjayaswal2105@gmail.com",
+    "image": "https://ritik-jayaswal.vercel.app/assets/portrait.png",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Chamber, Jaipur District Court Complex",
+      "addressLocality": "Jaipur",
+      "addressRegion": "Rajasthan",
+      "postalCode": "302006",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "26.9208",
+      "longitude": "75.7873"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "10:00",
+      "closes": "18:00"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Ritik Jayaswal",
+      "jobTitle": "Advocate",
+      "alumniOf": "Bar Council of Rajasthan"
+    },
+    "knowsAbout": [
+      "Criminal Law",
+      "Constitutional Law",
+      "Civil Litigation",
+      "Family & Matrimonial Law",
+      "Corporate & Commercial Law",
+      "Arbitration & Mediation"
+    ]
+  }
+  </script>
+
+  <!-- Preload Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300&family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300&family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- GSAP CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+</head>
+
+<body>
+
+  <!-- ============================================
+       CUSTOM CURSOR
+       ============================================ -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-outline" id="cursorOutline"></div>
+
+  <!-- ============================================
+       BLUEPRINT GRID OVERLAY
+       ============================================ -->
+  <div class="grid-overlay" id="gridOverlay">
+    <div class="h-lines" id="hLines"></div>
+    <div class="v-lines" id="vLines"></div>
+  </div>
+
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <nav class="nav" id="mainNav">
+    <a href="#hero" class="nav-brand">RITIK JAYASWAL</a>
+    <ul class="nav-links">
+      <li><a href="#hero" class="nav-link" data-hover>Home</a></li>
+      <li><a href="#practice" class="nav-link" data-hover>Practice</a></li>
+      <li><a href="#approach" class="nav-link" data-hover>Approach</a></li>
+      <li><a href="#philosophy" class="nav-link" data-hover>Philosophy</a></li>
+      <li><a href="#about" class="nav-link" data-hover>About</a></li>
+      <li><a href="#contact" class="nav-link" data-hover>Contact</a></li>
+    </ul>
+    <button class="nav-menu-toggle" id="navToggle" data-hover aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">&times;</button>
+    <a href="#hero" class="mobile-nav-item">Home</a>
+    <a href="#practice" class="mobile-nav-item">Practice</a>
+    <a href="#approach" class="mobile-nav-item">Approach</a>
+    <a href="#philosophy" class="mobile-nav-item">Philosophy</a>
+    <a href="#about" class="mobile-nav-item">About</a>
+    <a href="#contact" class="mobile-nav-item">Contact</a>
+  </div>
+
+  <!-- ============================================
+       PAGE CONTENT
+       ============================================ -->
+  <main class="page-content">
+
+    <!-- ============================================
+         SECTION 01 — HERO
+         ============================================ -->
+    <section class="hero section" id="hero">
+      <div class="gold-margin-rule" data-anim="gold-rule"></div>
+      <div class="hero-container section-container">
+        <div class="hero-content">
+          <div class="hero-label" id="heroLabel">Advocate · District Court & High Court of India</div>
+
+          <h1 class="hero-name" id="heroName">
+            <span>Ritik</span>
+            <span>Jayaswal</span>
+          </h1>
+
+          <div class="hero-gold-rule" id="heroGoldRule"></div>
+
+          <p class="hero-tagline" id="heroTagline">"The courtroom does not ask your age. It asks your argument."</p>
+
+          <div class="hero-ctas" id="heroCtas">
+            <a href="#contact" class="btn btn-primary" data-hover><span>Book Consultation</span></a>
+            <a href="#practice" class="btn btn-ghost" data-hover><span>View Practice Areas</span></a>
+          </div>
+        </div>
+
+        <div class="hero-portrait-wrapper" id="heroPortrait" data-hover>
+          <span class="hero-portrait-bg-number">01</span>
+          <img src="assets/portrait.png" alt="Ritik Jayaswal, Advocate" class="hero-portrait" width="480" height="640"
+            loading="eager">
+        </div>
+      </div>
+
+      <div class="scroll-indicator" id="scrollIndicator">
+        <div class="scroll-indicator-line">
+          <div class="scroll-indicator-dot"></div>
+        </div>
+        <span class="scroll-indicator-text">Scroll</span>
+      </div>
+    </section>
+
+    <!-- ============================================
+         AEO PROFILE SUMMARY (For AI Overviews & Quick Overview)
+         ============================================ -->
+    <section class="profile-summary section section--alt" id="overview">
+      <div class="gold-margin-rule" data-anim="gold-rule"></div>
+      <div class="section-container profile-summary-container">
+        <div class="profile-summary-header">
+          <div class="section-label" data-anim="label">Executive Profile</div>
+          <h2 class="section-title" data-anim="title">Quick Case & Counsel Summary</h2>
+        </div>
+        
+        <div class="profile-summary-grid" data-anim="card">
+          <div class="profile-summary-text">
+            <p class="profile-definition">
+              <strong>Ritik Jayaswal</strong> is a professional Indian Advocate enrolled with the <strong>Bar Council of Rajasthan</strong>, practicing actively in the District Courts and High Court. Located in Jaipur, Rajasthan, Advocate Jayaswal specializes in the construction of precise courtroom arguments, representing clients across criminal defense, constitutional petitions, civil disputes, family law, corporate compliance, and structured mediation.
+            </p>
+            <p class="profile-philosophy-highlight">
+              Built on a foundation of relentless research and absolute transparency, his legal practice bridges procedural rigor with a client-first approach to justice.
+            </p>
+          </div>
+          
+          <div class="profile-summary-sidebar" data-hover>
+            <h3 class="sidebar-title">Counsel Credentials</h3>
+            <ul class="credentials-list">
+              <li>
+                <span class="cred-label">Name</span>
+                <span class="cred-val">Ritik Jayaswal</span>
+              </li>
+              <li>
+                <span class="cred-label">Bar Registration</span>
+                <span class="cred-val">Bar Council of Rajasthan (India)</span>
+              </li>
+              <li>
+                <span class="cred-label">Primary Jurisdiction</span>
+                <span class="cred-val">Jaipur District Court & High Court</span>
+              </li>
+              <li>
+                <span class="cred-label">Specializations</span>
+                <span class="cred-val">Criminal, Civil, Constitutional, Corporate</span>
+              </li>
+              <li>
+                <span class="cred-label">Availability</span>
+                <span class="cred-val">Consultation by Appointment</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 02 — THE STATEMENT
+         ============================================ -->
+    <section class="statement section" id="statement">
+      <div class="gold-margin-rule" data-anim="gold-rule"></div>
+      <div class="statement-content">
+        <blockquote class="statement-quote" id="statementQuote">
+          "I did not choose law for its comfort. I chose it for its responsibility — to stand between a person and
+          injustice, and to never move."
+        </blockquote>
+        <div class="statement-rule" id="statementRule"></div>
+        <div class="statement-attribution" id="statementAttrib">— Ritik Jayaswal, Advocate</div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 03 — PRACTICE AREAS
+         ============================================ -->
+    <section class="practice-areas section section--alt" id="practice">
+      <div class="gold-margin-rule" data-anim="gold-rule"></div>
+      <div class="section-container">
+        <div class="section-label" data-anim="label">Areas of Practice</div>
+        <h2 class="section-title" data-anim="title">The Domains of Expertise</h2>
+
+        <div class="practice-grid">
+          <div class="practice-card" data-anim="card" data-hover>
+            <span class="practice-card-numeral">I</span>
+            <h3 class="practice-card-title">Criminal Law</h3>
+            <p class="practice-card-desc">Defence and prosecution in district and sessions courts. Every accused
+              deserves the full force of legal argument.</p>
+          </div>
+
+          <div class="practice-card" data-anim="card" data-hover>
+            <span class="practice-card-numeral">II</span>
+            <h3 class="practice-card-title">Constitutional Law</h3>
+            <p class="practice-card-desc">Fundamental rights are not suggestions. When the state oversteps, the
+              Constitution must answer.</p>
+          </div>
+
+          <div class="practice-card" data-anim="card" data-hover>
+            <span class="practice-card-numeral">III</span>
+            <h3 class="practice-card-title">Civil Litigation</h3>
+            <p class="practice-card-desc">Property, contracts, disputes, injunctions. Protecting what is rightfully
+              yours with procedural precision.</p>
+          </div>
+
+          <div class="practice-card" data-anim="card" data-hover>
+            <span class="practice-card-numeral">IV</span>
+            <h3 class="practice-card-title">Family & Matrimonial</h3>
+            <p class="practice-card-desc">Divorce, custody, maintenance, domestic matters handled with both legal rigor
+              and human sensitivity.</p>
+          </div>
+
+          <div class="practice-card" data-anim="card" data-hover>
+            <span class="practice-card-numeral">V</span>
+            <h3 class="practice-card-title">Corporate & Commercial</h3>
+            <p class="practice-card-desc">Agreements, disputes, compliance. Business decisions that need legal clarity
+              before they need legal defense.</p>
+          </div>
+
+          <div class="practice-card" data-anim="card" data-hover>
+            <span class="practice-card-numeral">VI</span>
+            <h3 class="practice-card-title">Arbitration & Mediation</h3>
+            <p class="practice-card-desc">When courts are not the fastest path, structured resolution that holds in law
+              and in practice.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 04 — THE APPROACH
+         ============================================ -->
+    <section class="approach section" id="approach">
+      <div class="gold-margin-rule" data-anim="gold-rule"></div>
+      <div class="section-container">
+        <div class="section-label" data-anim="label">What Sets Him Apart</div>
+        <h2 class="section-title" data-anim="title">The Method Behind the Argument</h2>
+
+        <div class="approach-grid">
+          <div class="approach-card" data-anim="card" data-hover>
+            <h3 class="approach-card-title">Precision</h3>
+            <p class="approach-card-quote">"Arguments are not made in court. They are constructed weeks before, word by
+              word, until no loose end remains."</p>
+            <p class="approach-card-desc">Every case receives a structured brief, a counter-argument map, and a
+              preparation timeline before a single court date.</p>
+          </div>
+
+          <div class="approach-card" data-anim="card" data-hover>
+            <h3 class="approach-card-title">Relentless Preparation</h3>
+            <p class="approach-card-quote">"The advocate who prepares more always speaks less — and means more."</p>
+            <p class="approach-card-desc">Research-first practice. Every statute, every precedent, every procedural
+              angle examined before the matter is filed.</p>
+          </div>
+
+          <div class="approach-card" data-anim="card" data-hover>
+            <h3 class="approach-card-title">Fearless Advocacy</h3>
+            <p class="approach-card-quote">"A junior advocate is not a lesser advocate. Hunger and precision are
+              advantages no seniority can buy."</p>
+            <p class="approach-card-desc">No case is too small to fight fully. No client is too ordinary to deserve
+              excellence.</p>
+          </div>
+
+          <div class="approach-card" data-anim="card" data-hover>
+            <h3 class="approach-card-title">Client Transparency</h3>
+            <p class="approach-card-quote">"You will always know where your case stands. No silence. No vague answers.
+              Clear communication at every step."</p>
+            <p class="approach-card-desc">Legal processes are opaque enough. The advocate's role is to make them clear.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 05 — LEGAL PHILOSOPHY
+         ============================================ -->
+    <section class="philosophy section section--alt" id="philosophy">
+      <div class="gold-margin-rule" data-anim="gold-rule"></div>
+      <div class="section-container">
+        <div class="section-label" data-anim="label">Philosophy of Practice</div>
+        <h2 class="section-title" data-anim="title">What Law Means to Ritik Jayaswal</h2>
+
+        <div class="philosophy-content">
+          <div class="philosophy-left-rule" data-anim="gold-rule-v"></div>
+
+          <div class="philosophy-block" data-anim="philosophy">
+            <span class="philosophy-marker">I</span>
+            <h3 class="philosophy-subtitle">On Law and Justice</h3>
+            <p class="philosophy-text">Law is not the same as justice — and an advocate must never confuse the two. The
+              law is the instrument. Justice is the destination. My practice begins with understanding what outcome is
+              truly right for my client, and then working backward through every legal tool available to reach it. The
+              courtroom is not a place of theater. It is a place of accountability. Every argument I make must be able
+              to withstand not just cross-examination, but conscience.</p>
+          </div>
+
+          <div class="philosophy-block" data-anim="philosophy">
+            <span class="philosophy-marker">II</span>
+            <h3 class="philosophy-subtitle">On the Indian Legal System</h3>
+            <p class="philosophy-text">The Indian legal system is one of the most complex and most extraordinary
+              frameworks of justice in the world. It carries the weight of colonial legacy, the ambition of a democratic
+              Constitution, and the daily reality of millions of citizens who need it to work. I believe deeply in this
+              system — not blindly, but with full awareness of where it struggles and where it soars. My role as an
+              advocate is to know it well enough to use it fully, and to use it in a way that moves it, however
+              incrementally, toward the justice it promises.</p>
+          </div>
+
+          <div class="philosophy-block" data-anim="philosophy">
+            <span class="philosophy-marker">III</span>
+            <h3 class="philosophy-subtitle">On the Client</h3>
+            <p class="philosophy-text">When a person walks into a lawyer's chamber, they are almost always carrying
+              fear. Fear of the system, fear of the outcome, fear of being misunderstood. I consider it the first
+              obligation of this practice to remove that fear — not by making false promises, but by making the path
+              clear. A client who understands their case is a client who can participate in it. That participation
+              changes everything. I do not carry cases alone. I carry them with the people whose lives depend on them.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 06 — ABOUT & BACKGROUND
+         ============================================ -->
+    <section class="about section" id="about">
+      <div class="gold-margin-rule" data-anim="gold-rule"></div>
+      <div class="section-container">
+        <div class="section-label" data-anim="label">The Advocate</div>
+        <h2 class="section-title" data-anim="title">Ritik Jayaswal</h2>
+
+        <div class="about-grid">
+          <div class="about-left">
+            <img src="assets/about.png" alt="Ritik Jayaswal in court setting" class="about-portrait" width="500"
+              height="600" loading="lazy" data-hover>
+
+            <div class="about-details">
+              <div class="about-detail-row">
+                <span class="about-detail-label">Enrolled</span>
+                <span class="about-detail-value">Bar Council Rajasthan</span>
+              </div>
+              <div class="about-detail-row">
+                <span class="about-detail-label">Courts</span>
+                <span class="about-detail-value">District Court · High Court</span>
+              </div>
+              <div class="about-detail-row">
+                <span class="about-detail-label">Languages</span>
+                <span class="about-detail-value">Hindi · English</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-right">
+            <div class="about-right-label">About</div>
+            <h3 class="about-right-name">Ritik Jayaswal</h3>
+            <div class="about-right-sub">Advocate · India</div>
+
+            <p class="about-text">Ritik Jayaswal completed his legal education with a singular focus: to become an
+              advocate whose preparation no opponent could outmatch. His academic years were defined not by passive
+              learning but by active engagement — moot court competitions, legal aid clinics, and an unwavering
+              commitment to understanding the procedural architecture of Indian law from its foundations.</p>
+
+            <p class="about-text">His training under senior advocates of the District and High Courts gave him more than
+              courtroom technique — it gave him the professional ethic of the Indian legal tradition. The principle that
+              an advocate's duty is first to the court, then to the client, and always to the truth, is not an ideal he
+              aspires to. It is the standard he practices by.</p>
+
+            <p class="about-text">Today, Ritik builds a practice defined by precision, transparency, and conviction. He
+              serves individuals, families, and businesses across criminal, civil, constitutional, and corporate matters
+              — bringing to each case the same intensity of preparation and the same refusal to leave any argument
+              unmade.</p>
+
+            <p class="about-closing">"Called to the Bar and committed to the cause."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 07 — TESTIMONIALS
+         ============================================ -->
+    <section class="testimonials section section--alt" id="testimonials">
+      <div class="gold-margin-rule" data-anim="gold-rule"></div>
+      <div class="section-container">
+        <div class="section-label" data-anim="label">In Their Words</div>
+        <h2 class="section-title" data-anim="title">What Clients and Mentors Say</h2>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card" data-anim="card" data-hover>
+            <div class="testimonial-card-quote-mark">"</div>
+            <p class="testimonial-card-text">Ritik handled our property dispute with the kind of thoroughness I have
+              rarely seen in advocates twice his age. He knew every precedent, every procedural detail, and he explained
+              everything to us at each step.</p>
+            <div class="testimonial-card-attribution">R.K. — Client, Civil Matter</div>
+            <div class="testimonial-card-stars">★★★★★</div>
+          </div>
+
+          <div class="testimonial-card" data-anim="card" data-hover>
+            <div class="testimonial-card-quote-mark">"</div>
+            <p class="testimonial-card-text">What impressed me most was his preparation. The briefs he filed were
+              immaculate. He treats every case as if it is the most important one in the court — and that discipline is
+              evident to the bench.</p>
+            <div class="testimonial-card-attribution">Senior Advocate — Professional Endorsement</div>
+          </div>
+
+          <div class="testimonial-card" data-anim="card" data-hover>
+            <div class="testimonial-card-quote-mark">"</div>
+            <p class="testimonial-card-text">I was terrified before my case began. Ritik sat with me for over an hour,
+              explained everything in plain Hindi, answered every question, and made me feel like I had someone truly
+              fighting for me.</p>
+            <div class="testimonial-card-attribution">S.D. — Client, Criminal Defence</div>
+            <div class="testimonial-card-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 07.5 — FAQ (For SEO, AEO, and Client Clarity)
+         ============================================ -->
+    <section class="faq section section--alt" id="faq">
+      <div class="gold-margin-rule" data-anim="gold-rule"></div>
+      <div class="section-container">
+        <div class="section-label" data-anim="label">Common Questions</div>
+        <h2 class="section-title" data-anim="title">Frequently Asked Questions</h2>
+
+        <div class="faq-accordion-container" data-anim="card">
+          <div class="faq-item" data-hover>
+            <button class="faq-trigger" aria-expanded="false">
+              <span>What legal services does Advocate Ritik Jayaswal provide in Jaipur?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+              <p>Advocate Ritik Jayaswal provides specialized legal representation and counsel across key practice areas including Criminal Law (bail, trial defense), Civil Litigation (property disputes, contract enforcement), Family & Matrimonial Law (divorce, custody), Constitutional Law (writ petitions before the High Court), and Corporate & Commercial advisory services.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-hover>
+            <button class="faq-trigger" aria-expanded="false">
+              <span>How can I schedule a consultation at the Jaipur District Court office?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+              <p>Consultations can be scheduled by filling out the contact form below, calling the office directly at <strong>+91-9983243935</strong>, or emailing <strong>ritikjayaswal2105@gmail.com</strong>. Consultations are available both in-person at the Jaipur District Court chamber or virtually via phone/video conference.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-hover>
+            <button class="faq-trigger" aria-expanded="false">
+              <span>Is Ritik Jayaswal registered with the Bar Council of Rajasthan?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+              <p>Yes, Advocate Ritik Jayaswal is enrolled and registered with the <strong>Bar Council of Rajasthan</strong> (the state regulatory body under the Bar Council of India). This ensures he is fully licensed and authorized to practice law and represent clients before all sessions, district, and high courts in India.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-hover>
+            <button class="faq-trigger" aria-expanded="false">
+              <span>Does the firm handle matters in the Rajasthan High Court?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+              <p>Yes, in addition to the Jaipur District & Sessions Court, Advocate Ritik Jayaswal represents clients in the High Court of Judicature for Rajasthan (Jaipur Bench and Jodhpur Bench). This includes writ petitions, appeals, revisions, and constitutional matters.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-hover>
+            <button class="faq-trigger" aria-expanded="false">
+              <span>What is the standard procedure when initiating a new legal case?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-content">
+              <p>Every matter begins with a thorough document audit and client interview to establish case facts. Advocate Jayaswal then maps out the legal research, drafts a structured counter-argument brief, and establishes a clear timeline with the client before filing the case or presenting arguments in court.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 08 — CONTACT & CONSULTATION
+         ============================================ -->
+    <section class="contact section" id="contact">
+      <div class="gold-margin-rule" data-anim="gold-rule"></div>
+      <div class="section-container">
+        <div class="section-label" data-anim="label">Get in Touch</div>
+        <h2 class="section-title" data-anim="title">Let's give you support</h2>
+
+        <div class="contact-grid">
+          <div class="contact-left">
+            <p class="contact-tagline">"Every case begins with a conversation. That conversation begins here."</p>
+
+            <div class="contact-details">
+              <div class="contact-detail">
+                <div class="contact-detail-icon"></div>
+                <div class="contact-detail-content">
+                  <span class="contact-detail-label">Phone</span>
+                  <span class="contact-detail-value">+91-9983243935</span>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-detail-icon"></div>
+                <div class="contact-detail-content">
+                  <span class="contact-detail-label">Email</span>
+                  <span class="contact-detail-value">ritikjayaswal2105@gmail.com</span>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-detail-icon"></div>
+                <div class="contact-detail-content">
+                  <span class="contact-detail-label">Chamber</span>
+                  <span class="contact-detail-value">Jaipur District Court Complex, Rajasthan, India</span>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-detail-icon"></div>
+                <div class="contact-detail-content">
+                  <span class="contact-detail-label">Hours</span>
+                  <span class="contact-detail-value">Monday to Saturday, 10:00 AM – 6:00 PM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-card">
+            <form id="contactForm" onsubmit="return false;">
+              <div class="form-group">
+                <label class="form-label" for="formName">Full Name</label>
+                <input class="form-input" type="text" id="formName" name="name" required autocomplete="name"
+                  placeholder="Your full name" data-hover>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="formPhone">Phone Number</label>
+                <input class="form-input" type="tel" id="formPhone" name="phone" required autocomplete="tel"
+                  placeholder="+91-XXXXX-XXXXX" data-hover>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="formMatter">Matter Type</label>
+                <select class="form-select" id="formMatter" name="matter" required data-hover>
+                  <option value="" disabled selected>Select matter type</option>
+                  <option value="criminal">Criminal</option>
+                  <option value="civil">Civil</option>
+                  <option value="family">Family</option>
+                  <option value="corporate">Corporate</option>
+                  <option value="constitutional">Constitutional</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="formDescription">Brief Description</label>
+                <textarea class="form-textarea" id="formDescription" name="description" rows="3"
+                  placeholder="Briefly describe your legal matter..." data-hover></textarea>
+              </div>
+              <button type="submit" class="btn-submit" id="formSubmit" data-hover>
+                <span>Send Message</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer" id="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Ritik Jayaswal</div>
+          <div class="footer-brand-sub">Advocate, India</div>
+        </div>
+        <nav class="footer-nav">
+          <a href="#hero" class="footer-nav-link" data-hover>Home</a>
+          <span style="color: var(--text-muted);">·</span>
+          <a href="#practice" class="footer-nav-link" data-hover>Practice</a>
+          <span style="color: var(--text-muted);">·</span>
+          <a href="#philosophy" class="footer-nav-link" data-hover>Philosophy</a>
+          <span style="color: var(--text-muted);">·</span>
+          <a href="#about" class="footer-nav-link" data-hover>About</a>
+          <span style="color: var(--text-muted);">·</span>
+          <a href="#contact" class="footer-nav-link" data-hover>Contact</a>
+        </nav>
+        <div class="footer-copyright">&copy; 2025 All Rights Reserved</div>
+      </div>
+      <div class="footer-legal">Enrolled with the Bar Council of India · All legal matters subject to applicable Indian
+        law</div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       JAVASCRIPT
+       ============================================ -->
+  <script src="main.js"></script>
+</body>
+
+</html>

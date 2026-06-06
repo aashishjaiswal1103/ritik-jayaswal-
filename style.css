@@ -1,0 +1,1528 @@
+/* ============================================
+   RITIK JAYASWAL — ADVOCATE LANDING PAGE
+   Theme: "Blueprint of Justice"
+   ============================================ */
+
+/* --- CSS Variables (Design Tokens) --- */
+:root {
+  --bg-page: #0A0A0A;
+  --bg-surface: #111111;
+  --bg-elevated: #161616;
+  --bg-section-alt: #0D0D0D;
+  --bg-footer: #080808;
+  --grid-line: rgba(255, 255, 255, 0.028);
+  --text-primary: #F0EFE9;
+  --text-secondary: #7A7A7A;
+  --text-muted: #555555;
+  --accent-gold: #C8A96E;
+  --accent-gold-dim: rgba(200, 169, 110, 0.15);
+  --accent-gold-bright: #D4B87A;
+  --divider: #1F1F1F;
+  --divider-gold: #C8A96E;
+
+  /* Spacing scale */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 40px;
+  --space-3xl: 48px;
+  --space-4xl: 64px;
+  --space-5xl: 80px;
+  --space-6xl: 120px;
+}
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #000000;
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  line-height: 1.85;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+::selection {
+  background: var(--accent-gold);
+  color: #000;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- Custom Cursor --- */
+.cursor-dot,
+.cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.15s ease, height 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.cursor-dot {
+  width: 3px;
+  height: 3px;
+  background-color: var(--text-primary);
+}
+
+.cursor-outline {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--text-primary);
+  background: transparent;
+}
+
+.cursor-outline.hovering {
+  width: 24px;
+  height: 24px;
+  border-color: var(--accent-gold);
+}
+
+.cursor-dot.hovering {
+  background-color: var(--accent-gold);
+}
+
+/* --- Blueprint Grid Overlay --- */
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.grid-overlay .h-lines,
+.grid-overlay .v-lines {
+  position: absolute;
+  inset: 0;
+}
+
+.grid-overlay .h-line {
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--grid-line);
+}
+
+.grid-overlay .v-line {
+  position: absolute;
+  top: 0;
+  height: 0;
+  width: 1px;
+  background: var(--grid-line);
+}
+
+/* --- Navigation --- */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 20px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  transition: background 0.4s ease, padding 0.3s ease;
+}
+
+.nav.scrolled {
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(16px);
+  padding: 14px 48px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-link {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent-gold);
+  transition: width 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--text-primary);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* --- Page Content Layer --- */
+.page-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Section Base --- */
+.section {
+  position: relative;
+  padding: 120px 48px;
+}
+
+.section--alt {
+  background: var(--bg-section-alt);
+}
+
+.section-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* --- Gold Margin Rule (Legal notebook line) --- */
+.gold-margin-rule {
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent-gold);
+  opacity: 0;
+}
+
+/* --- Section Label & Title System --- */
+.section-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+/* ============================================
+   SECTION 01 — HERO
+   ============================================ */
+.hero {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  background: var(--bg-page);
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-content {
+  position: relative;
+}
+
+.hero-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  opacity: 0;
+}
+
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: clamp(52px, 8vw, 108px);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  margin-top: 32px;
+  overflow: hidden;
+}
+
+.hero-name span {
+  display: block;
+  transform: translateY(120%);
+}
+
+.hero-gold-rule {
+  width: 0;
+  height: 2px;
+  background: var(--accent-gold);
+  margin-top: 20px;
+}
+
+.hero-tagline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(18px, 2.5vw, 28px);
+  color: var(--text-primary);
+  margin-top: 20px;
+  opacity: 0;
+  max-width: 520px;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+  opacity: 0;
+}
+
+/* Buttons */
+.btn {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  height: 48px;
+  padding: 0 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--accent-gold);
+  color: #000;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-gold-bright);
+  transform: translateX(-101%);
+  transition: transform 0.3s ease;
+}
+
+.btn-primary:hover::before {
+  transform: translateX(0);
+}
+
+.btn-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+  position: relative;
+}
+
+.btn-ghost::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border: 1px solid var(--accent-gold-bright);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.btn-ghost:hover {
+  color: var(--accent-gold-bright);
+  border-color: var(--accent-gold-bright);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+}
+
+.scroll-indicator-line {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-indicator-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 8px;
+  background: var(--text-secondary);
+  animation: scrollDot 2s ease-in-out infinite;
+}
+
+@keyframes scrollDot {
+  0% { top: 0; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.scroll-indicator-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+}
+
+/* Hero Portrait */
+.hero-portrait-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+
+.hero-portrait-bg-number {
+  position: absolute;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 320px;
+  color: rgba(255, 255, 255, 0.03);
+  z-index: 0;
+  line-height: 1;
+  user-select: none;
+}
+
+.hero-portrait {
+  position: relative;
+  z-index: 1;
+  max-height: 70vh;
+  width: auto;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+
+.hero-portrait-wrapper:hover .hero-portrait {
+  filter: grayscale(100%) sepia(8%) saturate(150%);
+}
+
+/* ============================================
+   SECTION 02 — THE STATEMENT
+   ============================================ */
+.statement {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-page);
+  position: relative;
+}
+
+.statement-content {
+  max-width: 760px;
+  text-align: center;
+  padding: 80px 0;
+}
+
+.statement-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(22px, 3vw, 30px);
+  color: var(--text-primary);
+  line-height: 1.7;
+  opacity: 0;
+}
+
+.statement-rule {
+  width: 0;
+  height: 1px;
+  background: var(--accent-gold);
+  margin: 32px auto;
+}
+
+.statement-attribution {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+  opacity: 0;
+}
+
+/* ============================================
+   SECTION 03 — PRACTICE AREAS
+   ============================================ */
+.practice-areas {
+  background: var(--bg-section-alt);
+}
+
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.practice-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--divider);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.practice-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-gold);
+  transition: width 0.3s ease;
+}
+
+.practice-card:hover {
+  background: var(--bg-elevated);
+  transform: scale(1.02);
+  border-left: 2px solid var(--accent-gold);
+}
+
+.practice-card:hover::before {
+  width: 100%;
+}
+
+.practice-card-numeral {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 120px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.04);
+  line-height: 1;
+  user-select: none;
+}
+
+.practice-card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 12px;
+}
+
+.practice-card-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   SECTION 04 — THE APPROACH
+   ============================================ */
+.approach {
+  background: var(--bg-page);
+}
+
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.approach-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--divider);
+  border-top: 2px solid var(--accent-gold);
+  padding: 40px;
+  transition: all 0.25s ease;
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.approach-card:hover {
+  transform: translateY(-4px);
+  border-top-color: var(--accent-gold-bright);
+  background: var(--bg-elevated);
+}
+
+.approach-card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40px;
+  color: var(--accent-gold);
+  margin-bottom: 16px;
+}
+
+.approach-card-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.approach-card-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ============================================
+   SECTION 05 — LEGAL PHILOSOPHY
+   ============================================ */
+.philosophy {
+  background: var(--bg-section-alt);
+}
+
+.philosophy-content {
+  max-width: 760px;
+  margin: 48px auto 0;
+  position: relative;
+}
+
+.philosophy-left-rule {
+  position: absolute;
+  left: -40px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent-gold);
+  opacity: 0;
+}
+
+.philosophy-block {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--divider);
+  position: relative;
+  opacity: 0;
+}
+
+.philosophy-block:last-child {
+  border-bottom: none;
+}
+
+.philosophy-marker {
+  position: absolute;
+  left: -80px;
+  top: 40px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px;
+  font-weight: 300;
+  color: var(--accent-gold);
+  opacity: 0.15;
+  line-height: 1;
+  user-select: none;
+}
+
+.philosophy-subtitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.15em;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.philosophy-text {
+  font-size: 17px;
+  color: var(--text-primary);
+  line-height: 1.9;
+}
+
+/* ============================================
+   SECTION 06 — ABOUT & BACKGROUND
+   ============================================ */
+.about {
+  background: var(--bg-page);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 64px;
+  margin-top: 48px;
+  align-items: start;
+}
+
+.about-portrait {
+  width: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+
+.about-portrait:hover {
+  filter: grayscale(100%) sepia(8%) saturate(150%);
+}
+
+.about-details {
+  margin-top: 32px;
+}
+
+.about-detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--divider);
+  font-size: 14px;
+}
+
+.about-detail-label {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+}
+
+.about-detail-value {
+  color: var(--text-primary);
+  text-align: right;
+}
+
+.about-right-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.about-right-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.about-right-sub {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+.about-text {
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+  line-height: 1.85;
+}
+
+.about-closing {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--accent-gold);
+  margin-top: 32px;
+}
+
+/* ============================================
+   SECTION 07 — TESTIMONIALS
+   ============================================ */
+.testimonials {
+  background: var(--bg-section-alt);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.testimonial-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--divider);
+  border-top: 2px solid var(--accent-gold);
+  padding: 40px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.testimonial-card-quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px;
+  color: var(--accent-gold);
+  line-height: 0.8;
+  margin-bottom: 16px;
+}
+
+.testimonial-card-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--text-primary);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.testimonial-card-attribution {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+}
+
+.testimonial-card-stars {
+  color: var(--accent-gold);
+  margin-top: 8px;
+  font-size: 14px;
+  letter-spacing: 4px;
+}
+
+/* ============================================
+   SECTION 08 — CONTACT
+   ============================================ */
+.contact {
+  background: var(--bg-page);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-top: 48px;
+}
+
+.contact-tagline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 24px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-detail {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.contact-detail-icon {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+.contact-detail-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-detail-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+}
+
+.contact-detail-value {
+  font-size: 16px;
+  color: var(--text-primary);
+  margin-top: 4px;
+}
+
+.contact-form-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--divider);
+  padding: 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  background: var(--bg-page);
+  border: 1px solid var(--divider);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  padding: 12px 16px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--accent-gold);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7A7A' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+.form-select option {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.btn-submit {
+  width: 100%;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  height: 48px;
+  background: var(--accent-gold);
+  color: #000;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-submit::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-gold-bright);
+  transform: translateX(-101%);
+  transition: transform 0.3s ease;
+}
+
+.btn-submit:hover::before {
+  transform: translateX(0);
+}
+
+.btn-submit span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-submit.sent {
+  background: transparent;
+  border: 2px solid var(--accent-gold);
+  color: var(--accent-gold);
+  animation: pulseBorder 0.6s ease;
+}
+
+@keyframes pulseBorder {
+  0%, 100% { border-color: var(--accent-gold); }
+  50% { border-color: var(--accent-gold-bright); box-shadow: 0 0 20px rgba(200, 169, 110, 0.3); }
+}
+
+/* ============================================
+   SECTION 09 — FOOTER
+   ============================================ */
+.footer {
+  background: var(--bg-footer);
+  padding: 48px;
+  border-top: 1px solid var(--accent-gold);
+}
+
+.footer-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.footer-brand-sub {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-nav-link {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.footer-nav-link:hover {
+  color: var(--accent-gold);
+}
+
+.footer-copyright {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+.footer-legal {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--divider);
+}
+
+/* ============================================
+   MOBILE NAV OVERLAY
+   ============================================ */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.98);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-nav-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav-overlay a {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.15em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.mobile-nav-overlay a:hover {
+  color: var(--accent-gold);
+}
+
+.mobile-nav-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 32px;
+  cursor: pointer;
+}
+
+/* ============================================
+   AEO PROFILE SUMMARY SECTION
+   ============================================ */
+.profile-summary-grid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 48px;
+  margin-top: 48px;
+  align-items: start;
+}
+
+.profile-definition {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(18px, 2.2vw, 24px);
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+.profile-definition strong {
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.profile-philosophy-highlight {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.profile-summary-sidebar {
+  background: var(--bg-surface);
+  border: 1px solid var(--divider);
+  border-left: 3px solid var(--accent-gold);
+  padding: 32px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.profile-summary-sidebar:hover {
+  background: var(--bg-elevated);
+  border-color: var(--accent-gold-dim);
+}
+
+.sidebar-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  color: var(--accent-gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--divider);
+  padding-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.credentials-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.credentials-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 14px;
+  border-bottom: 1px dashed var(--divider);
+  padding-bottom: 8px;
+}
+
+.credentials-list li:last-child {
+  border-bottom: none;
+}
+
+.cred-label {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+}
+
+.cred-val {
+  color: var(--text-primary);
+  text-align: right;
+}
+
+/* ============================================
+   FAQ ACCORDION SECTION
+   ============================================ */
+.faq-accordion-container {
+  max-width: 860px;
+  margin: 48px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: var(--bg-surface);
+  border: 1px solid var(--divider);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.faq-item:hover {
+  background: var(--bg-elevated);
+  border-color: var(--accent-gold-dim);
+}
+
+.faq-item.active {
+  border-color: var(--accent-gold);
+  background: var(--bg-elevated);
+}
+
+.faq-trigger {
+  width: 100%;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: var(--text-primary);
+  gap: 16px;
+  transition: color 0.3s ease;
+}
+
+.faq-trigger span:first-child {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.faq-icon {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 24px;
+  color: var(--accent-gold);
+  line-height: 1;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+  color: var(--accent-gold-bright);
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 32px;
+}
+
+.faq-content p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  padding-bottom: 24px;
+}
+
+/* ============================================
+   RESPONSIVE — TABLET (768px – 1279px)
+   ============================================ */
+@media (max-width: 1279px) {
+  .profile-summary-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .hero-portrait-wrapper {
+    justify-content: flex-start;
+    margin-top: 48px;
+  }
+
+  .hero-portrait {
+    max-height: 50vh;
+  }
+
+  .practice-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .approach-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials-grid .testimonial-card:last-child {
+    grid-column: 1 / -1;
+    max-width: 50%;
+  }
+
+  .grid-overlay .h-line,
+  .grid-overlay .v-line {
+    opacity: 0.5;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE (below 768px)
+   ============================================ */
+@media (max-width: 767px) {
+  .profile-definition {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .profile-summary-sidebar {
+    padding: 24px;
+  }
+
+  .faq-trigger {
+    padding: 20px 24px;
+  }
+
+  .faq-content {
+    padding: 0 24px;
+  }
+
+  body {
+    cursor: auto;
+    font-size: 16px;
+  }
+
+  .cursor-dot,
+  .cursor-outline {
+    display: none;
+  }
+
+  .grid-overlay {
+    display: none;
+  }
+
+  .section {
+    padding: 80px 20px;
+  }
+
+  .nav {
+    padding: 16px 20px;
+  }
+
+  .nav.scrolled {
+    padding: 12px 20px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-menu-toggle {
+    display: flex;
+  }
+
+  .hero {
+    padding: 100px 20px 60px;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-name {
+    font-size: 52px;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-portrait-wrapper {
+    margin-top: 32px;
+  }
+
+  .hero-portrait-bg-number {
+    font-size: 160px;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  .gold-margin-rule {
+    display: none;
+  }
+
+  .practice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .approach-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .philosophy-left-rule {
+    display: none;
+  }
+
+  .philosophy-marker {
+    display: none;
+  }
+
+  .philosophy-content {
+    margin-left: 0;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-grid .testimonial-card:last-child {
+    max-width: 100%;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .footer-copyright {
+    text-align: center;
+  }
+
+  .footer-nav {
+    justify-content: center;
+  }
+
+  .section-title {
+    font-size: clamp(32px, 8vw, 56px);
+  }
+
+  .statement-quote {
+    font-size: clamp(18px, 4vw, 24px);
+  }
+
+  .approach-card-title {
+    font-size: 32px;
+  }
+
+  .about-right-name {
+    font-size: 36px;
+  }
+
+  .footer {
+    padding: 32px 20px;
+  }
+}
